@@ -5,10 +5,11 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const indexRoutes = require("./routes/index.routes");
+const moviesRoutes = require("./routes/movies.routes");
 
 const app = express();
 
-const port = process.env.PORT || 1309;
+app.use("/movies", moviesRoutes);
 
 app.use("/", indexRoutes);
 
@@ -24,6 +25,7 @@ async function connectToDatabase() {
   await mongoose.connect(url);
 }
 
+const port = process.env.PORT || 1309;
 app.listen(port, function () {
   console.log(`Server is running on port: ${port}`);
 });
