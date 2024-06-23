@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const cors = require("cors");
 
 dotenv.config();
 
@@ -8,6 +9,8 @@ const indexRoutes = require("./routes/index.routes");
 const moviesRoutes = require("./routes/movies.routes");
 
 const app = express();
+
+app.use(cors());
 
 app.use("/movies", moviesRoutes);
 
