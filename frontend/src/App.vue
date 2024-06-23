@@ -1,6 +1,15 @@
 <template>
   <div>
-    <MovieCard v-for="movie in movies" :key="movie" :movie="movie" />
+    <header class="flex justify-between items-center px-6 py-4 bg-white shadow-md">
+      <h1 class="text-xl font-bold">Todo List</h1>
+      <nav class="space-x-4">
+        <RouterLink to="/" class="px-3 py-2 rounded-md hover:bg-gray-200">Home</RouterLink>
+        <RouterLink to="/todos" class="px-3 py-2 rounded-md hover:bg-blue-100">Todos</RouterLink>
+      </nav>
+    </header>
+    <main>
+      <RouterView />
+    </main>
   </div>
 </template>
 
@@ -18,7 +27,5 @@ async function fetchMovies() {
   movies.value = data
 }
 
-fetchMovies()
+// fetchMovies()
 </script>
-
-<style scoped></style>
